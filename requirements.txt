@@ -1,0 +1,8 @@
+Flask
+google-api-python-client
+flask_wtf
+wtforms
+firebase_admin
+datetime
+sendgrid
+google-cloud-firestore

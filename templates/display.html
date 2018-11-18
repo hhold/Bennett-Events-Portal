@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Bennett Events Board</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+<div class="container">
+{% if eventdata is string %}
+<h2>There are no events on this date.<br>
+  <a href={{ url_for('dateview') }} class="btn btn-info" role="button">Try another date</a> </div>
+
+{% else %}
+<h4>
+<div class = "container">
+
+{% for event in eventdata %}
+<div class = "section">
+
+<p>
+Club: {{ event.to_dict().get('Club') }} <br>
+<br>
+What: {{ event.to_dict().get('Event') }} <br>
+<br>
+When: {{ event.to_dict().get('Date') }},<b> at </b>{{ event.to_dict().get('Time') }} <br>
+<br>
+Where: {{ event.to_dict().get('Venue') }} <br>
+<br>
+Details: {{ event.to_dict().get('Details') }} <br>
+<br>
+</p>
+</div>
+<br><br>
+{% endfor %}
+</div>
+
+<div class="container"><a href={{ url_for('dateview') }} class="btn btn-info" role="button">Try another date</a></p>
+  <div class="container"><a href={{ url_for('index') }} class="btn btn-primary" role="button">Main Menu</a></p></div></div>
+</h4>
+{% endif %}
+
+  </body>
+  </html>
